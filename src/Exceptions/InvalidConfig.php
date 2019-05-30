@@ -4,14 +4,14 @@ namespace Richdynamix\LaravelFirebase\Exceptions;
 
 use Exception;
 
-class InvalidConfiguration extends Exception
+class InvalidConfig extends Exception
 {
     /**
      * @param  string  $path
      *
-     * @return InvalidConfiguration
+     * @return InvalidConfig
      */
-    public static function credentialsJsonDoesNotExist(string $path)
+    public static function credentialsJsonMissing(string $path)
     {
         return new static(
             "Could not find a credentials file at `{$path}`."

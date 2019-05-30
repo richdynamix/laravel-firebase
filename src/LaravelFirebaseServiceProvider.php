@@ -4,8 +4,7 @@ namespace Richdynamix\LaravelFirebase;
 
 use Illuminate\Support\ServiceProvider;
 use Kreait\Firebase\ServiceAccount;
-use Kreait\Firebase\Factory;
-use Richdynamix\LaravelFirebase\Exceptions\InvalidConfiguration;
+use Richdynamix\LaravelFirebase\Exceptions\InvalidConfig;
 
 class LaravelFirebaseServiceProvider extends ServiceProvider
 {
@@ -29,30 +28,29 @@ class LaravelFirebaseServiceProvider extends ServiceProvider
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'firebase');
 
-        $this->app->singleton('laravel-firebase', function () {
-            $firebaseConfig = config('firebase');
-            $this->guardAgainstInvalidConfiguration($firebaseConfig);
+        $this->app->singleton(FirebaseFactory::class, function () {
+            $config = config('firebase');
+            $this->guardAgainstInvalidConfiguration($config);
 
             $serviceAccount = ServiceAccount::fromJsonFile(
-                $firebaseConfig['service_account_json']
+                $config['service_account_json']
             );
 
-            return (new Factory)
-                ->withServiceAccount($serviceAccount)
-                ->withDatabaseUri($firebaseConfig['database_uri'])
-                ->create();
+            return FirebaseFactory::create($serviceAccount, $config);
         });
     }
 
     /**
-     * @param  array|null  $firebaseConfig
+     * @param  array|null  $config
      *
-     * @throws InvalidConfiguration
+     * @throws InvalidConfig
      */
-    protected function guardAgainstInvalidConfiguration(array $firebaseConfig = null)
+    protected function guardAgainstInvalidConfiguration(array $config = null)
     {
-        if (!file_exists($firebaseConfig['service_account_json'])) {
-            throw InvalidConfiguration::credentialsJsonDoesNotExist($firebaseConfig['service_account_json']);
+        if (!file_exists($config['service_account_json'])) {
+            throw InvalidConfig::credentialsJsonMissing(
+                $config['service_account_json']
+            );
         }
     }
 }

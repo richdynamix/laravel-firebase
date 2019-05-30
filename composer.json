@@ -1,11 +1,11 @@
 {
-    "name": "richdynamix/laravel-firebase",
+    "name": "richdynamix/laravel-firebase-realtime-db",
     "description": "A simple Laravel Wrapper for the Firebase PHP SDK",
     "keywords": [
         "richdynamix",
-        "laravel-firebase"
+        "laravel-firebase-realtime-db"
     ],
-    "homepage": "https://github.com/richdynamix/laravel-firebase",
+    "homepage": "https://github.com/richdynamix/laravel-firebase-realtime-db",
     "license": "MIT",
     "type": "library",
     "authors": [

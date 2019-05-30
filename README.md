@@ -1,11 +1,11 @@
-# Very short description of the package
+# Laravel-Firebase
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/richdynamix/laravel-firebase.svg?style=flat-square)](https://packagist.org/packages/richdynamix/laravel-firebase)
 [![Build Status](https://img.shields.io/travis/richdynamix/laravel-firebase/master.svg?style=flat-square)](https://travis-ci.org/richdynamix/laravel-firebase)
 [![Quality Score](https://img.shields.io/scrutinizer/g/richdynamix/laravel-firebase.svg?style=flat-square)](https://scrutinizer-ci.com/g/richdynamix/laravel-firebase)
 [![Total Downloads](https://img.shields.io/packagist/dt/richdynamix/laravel-firebase.svg?style=flat-square)](https://packagist.org/packages/richdynamix/laravel-firebase)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+At present the package provides no more than a convenient wrapper to the kreait/firebase-php package for interacting with Firebase Realtime Database.
 
 ## Installation
 
@@ -18,7 +18,10 @@ composer require richdynamix/laravel-firebase
 ## Usage
 
 ``` php
-// Usage description here
+use Richdynamix\LaravelFirebase\Firebase;
+
+$firebase = Firebase::getDatabase();
+
 ```
 
 ### Testing
