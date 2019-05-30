@@ -1,0 +1,55 @@
+{
+    "name": "richdynamix/laravel-firebase",
+    "description": "A simple Laravel Wrapper for the Firebase PHP SDK",
+    "keywords": [
+        "richdynamix",
+        "laravel-firebase"
+    ],
+    "homepage": "https://github.com/richdynamix/laravel-firebase",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Steven Richardson",
+            "email": "steven@digitonic.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*",
+        "kreait/firebase-php": "~4.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Richdynamix\\LaravelFirebase\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Richdynamix\\LaravelFirebase\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Richdynamix\\LaravelFirebase\\LaravelFirebaseServiceProvider"
+            ],
+            "aliases": {
+                "Firebase": "Richdynamix\\LaravelFirebase\\Firebase"
+            }
+        }
+    }
+}
