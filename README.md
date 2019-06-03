@@ -7,6 +7,8 @@
 
 At present the package provides no more than a convenient wrapper to the kreait/firebase-php package for interacting with Firebase Realtime Database.
 
+**Warning: Package is currently in development. Not to be used in production**
+
 ## Installation
 
 You can install the package via composer:
