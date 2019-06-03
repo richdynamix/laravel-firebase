@@ -1,5 +1,5 @@
 {
-    "name": "richdynamix/laravel-firebase-realtime-db",
+    "name": "richdynamix/laravel-firebase",
     "description": "A simple Laravel Wrapper for the Firebase PHP SDK",
     "keywords": [
         "richdynamix",
